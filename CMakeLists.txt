@@ -10,4 +10,5 @@ ModuleSetWinCompilerFlags()
 
 ModuleImportAll("thirdparty")
 LibImport("sqlite3" "src/sqlite3")
+
 ExeImport("test" "sqlite3")
