@@ -8,7 +8,6 @@ INCLUDE(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
 ModuleSetWinCompilerFlags()
 
-ModuleImportAll("thirdparty")
 LibImport("sqlite3" "src/sqlite3")
 
 if (PROJECT_IS_TOP_LEVEL)
