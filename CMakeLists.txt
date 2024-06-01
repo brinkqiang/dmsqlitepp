@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.21)
 
 PROJECT(dmsqlitepp)
 
@@ -11,4 +11,6 @@ ModuleSetWinCompilerFlags()
 ModuleImportAll("thirdparty")
 LibImport("sqlite3" "src/sqlite3")
 
-ExeImport("test" "sqlite3")
+if (PROJECT_IS_TOP_LEVEL)
+	ExeImport("test" "sqlite3")
+endif(PROJECT_IS_TOP_LEVEL)
