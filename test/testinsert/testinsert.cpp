@@ -7,11 +7,21 @@ int main()
 {
   try {
     sqlite3pp::database db("test.db");
-
+    {
+		db.execute(R"""(
+    CREATE TABLE contacts (
+      id INTEGER PRIMARY KEY,
+      name TEXT NOT NULL,
+      phone TEXT NOT NULL,
+      address TEXT,
+      UNIQUE(name, phone)
+    );
+  )""");
+    }
     {
       db.execute("INSERT INTO contacts (name, phone) VALUES ('AAAA', '1234')");
     }
-
+    
     {
       sqlite3pp::transaction xct(db);
 
