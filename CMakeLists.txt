@@ -7,6 +7,10 @@ INCLUDE(cmake/ModuleImport.cmake)
 INCLUDE(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
 
+if(WIN32)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 LibImport("dmsqlitepp" "src/dmsqlitepp")
 
 if (PROJECT_IS_TOP_LEVEL)
